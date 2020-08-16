@@ -15,3 +15,4 @@ How to use:
 ToDo:
 1. Online indicator
 2. Group chat
+3. Deploy to heroku
