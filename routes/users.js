@@ -4,7 +4,7 @@ const mongoclient = require('mongodb').MongoClient;
 const assert = require('assert');
 const app = require('../app');
 
-const url = "mongodb://localhost:27017";
+const url = process.env.MONGODB_URI || "mongodb://localhost:27017";
 
 async function connect() {
     const client = await mongoclient.connect(url);

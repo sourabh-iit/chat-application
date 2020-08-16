@@ -3,7 +3,7 @@ const passwordHash = require('password-hash');
 const auth = require('../auth_util');
 const assert = require('assert');
 
-const url = "mongodb://localhost:27017";
+const url = process.env.MONGODB_URI || "mongodb://localhost:27017";
 
 async function connect() {
   const client = await mongoclient.connect(url);

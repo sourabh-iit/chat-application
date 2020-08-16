@@ -12,6 +12,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo.listen(server);
 const temp_path = path.join(__dirname, 'public', 'index.html');
+const port = process.env.PORT || 3000;
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -62,6 +63,6 @@ app.use(function(err, req, res, next) {
   res.send('error');
 });
 
-server.listen(3000);
+server.listen(port);
 
 module.exports.io = io;
