@@ -1,6 +1,8 @@
 # chat-application
 Real time chat application
 
+link: https://realtime-messaging-app.herokuapp.com
+
 Tech stack used: Node.js, Express.js, Mongodb, Socket.io, Angular
 
 Features:
