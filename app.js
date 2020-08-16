@@ -63,6 +63,42 @@ app.use(function(err, req, res, next) {
   res.send('error');
 });
 
+let activeUsers = {};
+io.on('connection', (socket) => {
+  socket.on('new user', (data) => {
+    if(data in activeUsers) {
+      activeUsers[data].count++;
+    } else {
+      activeUsers[data] = {
+        count: 1,
+        socket: socket
+      };
+    }
+    socket.userId = data;
+    io.emit('new user', Object.keys(activeUsers));
+  });
+
+  socket.on('disconnect', () => {
+    activeUsers[socket.userId].count--;
+    if(activeUsers[socket.userId].count == 0) {
+      delete activeUsers[socket.userId];
+    }
+    io.emit('new user', Object.keys(activeUsers));
+  });
+
+  socket.on('start typing', (to) => {
+    if(to in activeUsers) {
+      activeUsers[to].socket.emit('start typing', socket.userId);
+    }
+  });
+
+  socket.on('stop typing', (to) => {
+    if(to in activeUsers) {
+      activeUsers[to].socket.emit('stop typing', socket.userId);
+    }
+  });
+});
+
 server.listen(port);
 
 module.exports.io = io;

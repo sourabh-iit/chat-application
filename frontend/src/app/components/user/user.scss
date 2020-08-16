@@ -1,0 +1,13 @@
+.name-container {
+    display: flex;
+    align-items: center;
+    .status {
+        width: 10px;
+        height: 10px;
+        background: white;
+        border-radius: 10px;
+    }
+    .online {
+        background: greenyellow!important;
+    }
+}

@@ -6,9 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { UsersComponent } from './users/users.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { UsersComponent } from './components/users/users.component';
+import { UserComponent } from './components/user/user.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 import { UserService } from './services/user.service';
 import { AuthInterceptor } from './services/auth.interceptor';
 import { AuthGuardService } from './services/auth-guard.service';
@@ -19,7 +20,8 @@ import { SocketioService } from './services/socketio.service';
     AppComponent,
     UsersComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

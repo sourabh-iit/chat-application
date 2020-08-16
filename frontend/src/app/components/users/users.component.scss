@@ -44,6 +44,13 @@ $box-height: 500px;
         border-radius: 10px 10px 0 0;
     }
 
+    .typing {
+        padding-left: 10px;
+        padding-bottom: 5px;
+        color: gray;
+        font-weight: 800;
+    }
+    
     .chat {
         height: $box-height - 80px;
         width: 100%;
@@ -56,11 +63,17 @@ $box-height: 500px;
             padding: 5px;
             border-radius: 5px;
             background: white;
+            width: 75%;
             .heading {
                 font-weight: bold;
             }
             .message {
                 margin-left: 5px;
+            }
+            &.me {
+                background: $main-color;
+                color: white;
+                margin-left: 25%;
             }
         }
     }
@@ -76,6 +89,7 @@ $box-height: 500px;
         border: none;
         &:focus {
             border: none;
+            outline: none;
         }
     }
 }

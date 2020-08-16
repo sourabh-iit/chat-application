@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { environment } from '../../environments/environment';
 import { BehaviorSubject } from 'rxjs';
+import { UserService } from './user.service';
 
 
 @Injectable()
@@ -11,15 +12,32 @@ export class SocketioService {
     newEvent$ = new BehaviorSubject<any>(null);
     private isConnected = true;
 
-    constructor() {
+    constructor(
+        private userService: UserService
+    ) {
         this.socket = io(environment.SOCKET_ENDPOINT);
-        this.subscribeEvent('message');
+        this.subscribeEvents(['message', 'new user', 'connect', 'start typing', 'stop typing']);
+        this.newEvent$.subscribe((data) => {
+            if(data) {
+                switch (data.event) {
+                    case 'connect':
+                        this.emitEvent('new user', userService.user.username);
+                        break;
+                }
+            }
+        });
     }
 
-    subscribeEvent(event: string) {
-        this.socket.on(event, (data: any) => {
-            this.newEvent$.next({event: event, data: data});
+    subscribeEvents(events: Array<string>) {
+        events.forEach((event: string) => {
+            this.socket.on(event, (data: any) => {
+                this.newEvent$.next({event: event, data: data});
+            });
         });
+    }
+
+    emitEvent(event: string, data = {}) {
+        this.socket.emit(event, data);
     }
 
     disconnect() {
@@ -30,7 +48,6 @@ export class SocketioService {
     connect() {
         if(!this.isConnected) {
             this.socket.connect();
-            this.subscribeEvent('message');
         }
     }
 }
