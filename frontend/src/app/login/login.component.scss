@@ -1,20 +1,24 @@
+@import './src/styles.scss';
+
 .login-form {
-    max-width: 600px;
+    max-width: 500px;
     margin: auto;
     border: 1px solid lightblue;
     border-radius: 5px;
-    margin-top: 20px;
+    margin-top: 40px;
 
     .box {
         padding: 10px;
+        background: aliceblue;
     }
 
     .heading {
-        background: green;
+        background: $main-color;
         padding: 10px;
         font-size: 16px;
         color: white;
         text-align: center;
+        border-radius: 10px 10px 0 0;
     }
     .submit-container {
         text-align: center;
