@@ -1,0 +1,22 @@
+.login-form {
+    max-width: 600px;
+    margin: auto;
+    border: 1px solid lightblue;
+    border-radius: 5px;
+    margin-top: 20px;
+
+    .box {
+        padding: 10px;
+    }
+
+    .heading {
+        background: green;
+        padding: 10px;
+        font-size: 16px;
+        color: white;
+        text-align: center;
+    }
+    .submit-container {
+        text-align: center;
+    }
+}

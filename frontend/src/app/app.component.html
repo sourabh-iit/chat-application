@@ -1,0 +1,11 @@
+<div class="header">
+    <h4>
+        <i class="fa fa-envelope"></i> Chat Application
+    </h4>
+    <button (click)="logout()" *ngIf="isLoggedIn()" class="btn btn-danger btn-sm">Logout</button>
+    <div *ngIf="!isLoggedIn()">
+        <a class="btn btn-primary" href="/login">Login</a>
+        <a class="btn btn-secondary ml-2" href="/register">Register</a>
+    </div>
+</div>
+<router-outlet></router-outlet>

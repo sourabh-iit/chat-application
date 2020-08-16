@@ -1,0 +1,37 @@
+<div class="users-box">
+  <div class="heading">Click on user to chat</div>
+  <div class="text-center p-3" *ngIf="loadingUsers">
+    <i class="fa fa-spin fa-spinner"></i>
+  </div>
+  <div class="box" *ngIf="!loadingUsers">
+    <ng-container *ngFor="let user of users">
+      <button (click)="openChatBox(user)" class="mr-2 btn btn-info">
+        <i class="fa fa-user"></i> {{user.first_name}} {{user.last_name}}
+      </button>
+    </ng-container>
+  </div>
+</div>
+
+<div class="chat-boxes-container">
+  <div class="chat-box" *ngFor="let chatBox of chatBoxes; let i = index">
+    <div class="header">
+      <div>{{chatBox.user.first_name}} {{chatBox.user.last_name}}</div>
+      <div>
+        <i class="fa fa-minus mr-3 c-pointer" (click)="minimizeChatBox(i)"></i>
+        <i class="fa fa-times c-pointer" (click)="closeChatBox(i)"></i>
+      </div>
+    </div>
+    <ng-container *ngIf="!chatBox.minimized">
+      <div class="chat">
+        <div class="message-box" *ngFor="let message of chatBox.chat">
+          <div class="heading">{{message.from}}</div>
+          <div class="message">{{message.message}}</div>
+        </div>
+      </div>
+      <div class="input-container">
+        <input class="input" (keydown.enter)="sendMessage(i)"
+          placeholder="type message..." name="currMsg" [(ngModel)]="chatBox.currMessage">
+      </div>
+    </ng-container>
+  </div>
+</div>

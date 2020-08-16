@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+$fa-font-path: "~font-awesome/fonts";
+@import '~font-awesome/scss/font-awesome';
+
+
+$main-color: #4c5980;
+$main-color-light-1: #4c5980e3;
+$main-color-light-2: #4c5980;
+
+.header {
+    background-color: $main-color;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+.c-pointer {
+    cursor: pointer;
+}

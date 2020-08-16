@@ -1,0 +1,47 @@
+<form #registerForm="ngForm" (ngSubmit)="register()" class="register-form">
+    <div class="heading">Register</div>
+    <div class="box">
+        <div class="form-group">
+            <label for="first_name">First name</label>
+            <input id="first_name" 
+                required class="form-control" 
+                placeholder="first name" minlength="1" 
+                [(ngModel)]="user.first_name" name="first_name">
+        </div>
+        <div class="form-group">
+            <label for="first_name">Last name</label>
+            <input id="last_name" 
+                required class="form-control" 
+                placeholder="last name" minlength="1" 
+                [(ngModel)]="user.last_name" name="last_name">
+        </div>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input id="username" 
+                required class="form-control" 
+                placeholder="username" minlength="1" 
+                [(ngModel)]="user.username" name="username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" 
+                required id="password" 
+                minlength="1" class="form-control" 
+                placeholder="password" name="password"
+                [(ngModel)]="user.password">
+        </div>
+        <div class="form-group">
+            <label for="confirm_password">Confirm Password</label>
+            <input type="password" 
+                required id="confirm_password" 
+                class="form-control" 
+                placeholder="re-enter password" name="confirm_password"
+                [(ngModel)]="user.confirm_password">
+        </div>
+        <div class="submit-container">
+            <button type="submit" class="btn btn-primary" [disabled]="!registerForm.form.valid">
+                Register <i class="fa fa-spin spinner" *ngIf="busy"></i>
+            </button>
+        </div>
+    </div>
+</form>
