@@ -4,11 +4,8 @@
 @import '~bootstrap/scss/bootstrap';
 $fa-font-path: "~font-awesome/fonts";
 @import '~font-awesome/scss/font-awesome';
+@import './sass/variables';
 
-
-$main-color: #4c5980;
-$main-color-light-1: #4c5980e3;
-$main-color-light-2: #4c5980;
 
 .header {
     background-color: $main-color;
