@@ -18,4 +18,4 @@ How to use:
 
 ToDo:
 1. Group chat
-2. LFU implementation for next chat box
+2. LRU implementation for next chat box
