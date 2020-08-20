@@ -13,6 +13,7 @@ Features:
 5. User typing indicator
 
 How to use:
+pre-requisites: node, mongodb
 1. Clone repository and go to chat-application folder. Run npm install.
 2. Then, run node app.js
 
